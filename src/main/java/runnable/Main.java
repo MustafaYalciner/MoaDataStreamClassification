@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import moa.core.InstanceExample;
 import moa.streams.generators.RandomRBFGenerator;
+import weka.classifiers.trees.HoeffdingTree;
 
 /**
  *
@@ -20,11 +21,10 @@ public class Main {
      */
     public static void main(String[] args) throws IOException {
         final int dataSize = 10000;
-        System.out.println("Hello world");
         RandomRBFGenerator randomGen = new RandomRBFGenerator();
         randomGen.prepareForUse();
 
-        File fout = new File("data.txt");
+        File fout = new File("RBFdataset.txt");
         FileOutputStream fos = new FileOutputStream(fout);
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
 
