@@ -7,13 +7,12 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import moa.core.InstanceExample;
 import moa.streams.generators.RandomRBFGenerator;
-import weka.classifiers.trees.HoeffdingTree;
 
 /**
  *
  * @author Mustafa Yalciner
  */
-public class Main {
+public class DataCreator {
 
     /**
      * @param args the command line arguments
@@ -42,8 +41,6 @@ public class Main {
             }
         }
         bw.close();
-
-        // TODO code application logic here
     }
 
 }
