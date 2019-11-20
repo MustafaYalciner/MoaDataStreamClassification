@@ -24,6 +24,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         final int dataSize = 10000;
         RandomRBFGenerator randomGen = new RandomRBFGenerator();
+        randomGen.numAttsOption.setValue(20);
         
         File dataSetSerialize = new File("SerializedDataSet.txt");
         SerializeUtils.writeToFile(dataSetSerialize, randomGen);
