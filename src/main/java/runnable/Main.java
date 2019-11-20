@@ -6,13 +6,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import moa.core.InstanceExample;
+import moa.core.SerializeUtils;
+import moa.streams.clustering.SimpleCSVStream;
 import moa.streams.generators.RandomRBFGenerator;
+import moa.tasks.WriteStreamToARFFFile;
 
 /**
  *
  * @author Mustafa Yalciner
  */
-public class DataCreator {
+public class Main {
 
     /**
      * @param args the command line arguments
@@ -21,10 +24,13 @@ public class DataCreator {
     public static void main(String[] args) throws IOException {
         final int dataSize = 10000;
         RandomRBFGenerator randomGen = new RandomRBFGenerator();
+        
+        File dataSetSerialize = new File("SerializedDataSet.txt");
+        SerializeUtils.writeToFile(dataSetSerialize, randomGen);
         randomGen.prepareForUse();
-
-        File fout = new File("RBFdataset.txt");
-        FileOutputStream fos = new FileOutputStream(fout);
+        File dataSetHuman = new File("RBFdataset.txt");
+        
+        FileOutputStream fos = new FileOutputStream(dataSetHuman);
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
 
         for (int i = 0; i < dataSize; i++) {

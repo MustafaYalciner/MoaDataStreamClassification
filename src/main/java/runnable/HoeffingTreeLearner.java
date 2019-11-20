@@ -1,10 +1,12 @@
 package runnable;
 
+import java.io.File;
 import java.io.IOException;
 import moa.classifiers.Classifier;
 import moa.classifiers.bayes.NaiveBayes;
 import moa.classifiers.trees.HoeffdingTree;
 import moa.core.InstanceExample;
+import moa.core.SerializeUtils;
 import moa.streams.generators.RandomRBFGenerator;
 
 /**
@@ -16,10 +18,11 @@ public class HoeffingTreeLearner {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         final int dataSize = 10000;
 
-        RandomRBFGenerator randomGen = new RandomRBFGenerator();
+        
+        RandomRBFGenerator randomGen = (RandomRBFGenerator)SerializeUtils.readFromFile(new File("SerializedDataSet.txt"));
         randomGen.prepareForUse();
 
         Classifier hoeffTreeClassifier = new HoeffdingTree();
