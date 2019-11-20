@@ -25,7 +25,7 @@ public class Main {
         final int dataSize = 10000;
         RandomRBFGenerator randomGen = new RandomRBFGenerator();
         randomGen.numAttsOption.setValue(20);
-        
+        randomGen.numClassesOption.setValue(4);
         File dataSetSerialize = new File("SerializedDataSet.txt");
         SerializeUtils.writeToFile(dataSetSerialize, randomGen);
         randomGen.prepareForUse();
